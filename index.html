@@ -4,7 +4,7 @@
     <h1>
         favorite quotes
     </h1>
-    <em class="quote">
+    <em class="quote" id="quote">
     </em>
     <button onclick="doThing()"> Get a quote! </button>
 </body>
@@ -17,8 +17,14 @@
         .then(data =>{
             console.log(data)
             document.querySelector(".quote").innerHTML = data.content
-            let author = document.createElement(data.author)
-            document.appendChild(author)
+            let parent = document.getElementById("quote");
+
+            var author = document.createElement("author")
+            author.innerHTML = "~" + data.author
+            author.style.padding = "4px";
+            parent.appendChild(author)
+
+            
 
         })
     }
